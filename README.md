@@ -1,7 +1,7 @@
 ## amis-python
 <p align="center">
     <a href="https://cdn.jsdelivr.net/gh/CMHopeSunshine/amis-python@master/LICENSE"><img src="https://img.shields.io/github/license/CMHopeSunshine/amis-python" alt="license"></a>
-    <img src="https://img.shields.io/badge/Python-3.7+-yellow" alt="python">
+    <img src="https://img.shields.io/badge/Python-3.8+-yellow" alt="python">
     <img src="https://img.shields.io/pypi/v/amis-python" alt="version">
 </p>
 
@@ -37,5 +37,4 @@ with open('HelloWorld.html', 'w', encoding='utf-8') as f:
 详见[amis官方文档](https://aisuda.bce.baidu.com/amis/zh-CN/docs/index)
 
 ## 感谢
-- [amis](https://github.com/baidu/amis)
-- [fastapi-amis-admin](https://github.com/amisadmin/fastapi_amis_admin/tree/master/fastapi_amis_admin/amis)
+- [amis-python](hCMHopeSunshine/amis-python)
