@@ -15,11 +15,11 @@
 - 支持修改主题
 ## 安装
 ```
-pip install amis-python
+pip install amisui
 ```
 ## 简单使用
 ```python
-from amis.components import Page
+from amisui.components import Page
 
 page = Page(title='新页面', body='Hello World')
 # 输出为python字典

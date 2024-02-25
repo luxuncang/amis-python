@@ -19,10 +19,10 @@ class BaseAmisModel(BaseModel):
         json_dumps = json.dumps
 
     def to_json(self):
-        return json.dumps(json.loads(self.model_dump_json(exclude_none=True, by_alias=True)), ensure_ascii=False, indent=4)
+        return self.json(exclude_none=True, by_alias=True, ensure_ascii=False, indent=4)
 
     def to_dict(self):
-        return self.model_dump(exclude_none=True, by_alias=True)
+        return self.dict(exclude_none=True, by_alias=True)
 
     def update_from_dict(self, kwargs: Dict[str, Any]):
         for k, v in kwargs.items():
