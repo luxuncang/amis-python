@@ -6,6 +6,7 @@ from typing import Union, List, Optional, Any, Dict, Tuple
 from jinja2 import Environment, FileSystemLoader
 from pydantic import Field
 
+from .config import Config
 from .constants import LevelEnum, DisplayModeEnum, SizeEnum, TabsModeEnum
 from .types import API, Expression, AmisNode, SchemaNode, Template, BaseAmisModel, OptionsNode, Tpl
 
@@ -132,9 +133,9 @@ class Page(AmisNode):
     def render(
             self,
             template_name: str = '',
-            locale: str = 'zh_CN',
-            cdn: str = 'https://unpkg.com',
-            version: str = 'latest',
+            locale: str = '',
+            cdn: str = '',
+            version: str = '',
             site_title: str = 'Amis',
             site_icon: str = '',
             theme: str = 'default',
@@ -154,9 +155,9 @@ class Page(AmisNode):
         return env.get_template(template_name).render(
             **{
                 'AmisSchemaJson': self.to_json(),
-                'locale': locale,
-                'cdn': cdn,
-                'version': version,
+                'locale': locale or Config.locale,
+                'cdn': cdn or Config.cdn,
+                'version': version or Config.version,
                 'site_title': site_title,
                 'site_icon': site_icon,
                 'theme_css': theme_css,
