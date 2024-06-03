@@ -13,16 +13,12 @@ OptionsNode = Union[List[dict], List[str]]
 
 
 class BaseAmisModel(BaseModel):
-    class Config:
-        extra = Extra.allow
-        json_loads = json.loads
-        json_dumps = json.dumps
 
     def to_json(self):
-        return self.json(exclude_none=True, by_alias=True, ensure_ascii=False, indent=4)
+        return self.model_dump_json()
 
     def to_dict(self):
-        return self.dict(exclude_none=True, by_alias=True)
+        return self.model_dump()
 
     def update_from_dict(self, kwargs: Dict[str, Any]):
         for k, v in kwargs.items():
