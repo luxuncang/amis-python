@@ -4,7 +4,7 @@ try:
     import ujson as json
 except ImportError:
     import json
-from pydantic import BaseModel, Extra
+from pydantic import BaseModel
 
 Expression = str
 Template = Union[str, "Tpl", dict]
@@ -14,11 +14,14 @@ OptionsNode = Union[List[dict], List[str]]
 
 class BaseAmisModel(BaseModel):
 
+    class Config:
+        extra = 'allow'
+
     def to_json(self):
-        return self.model_dump_json()
+        return json.dumps(json.loads(self.model_dump_json(exclude_none=True, by_alias=True)), ensure_ascii=False, indent=4)
 
     def to_dict(self):
-        return self.model_dump()
+        return self.model_dump(exclude_none=True, by_alias=True)
 
     def update_from_dict(self, kwargs: Dict[str, Any]):
         for k, v in kwargs.items():
